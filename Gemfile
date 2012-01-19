@@ -6,6 +6,7 @@ gem 'rails', '3.1.2'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'devise'
+gem "thin"
 
 # Rails 3.1 - JavaScript
 gem 'jquery-rails'
@@ -42,6 +43,9 @@ group :development, :test do
   gem "pry"
 end
 
+# Rails 3.1 - Heroku
 group :production do
+  gem "heroku"
   gem 'pg'
+  gem 'newrelic_rpm'
 end
