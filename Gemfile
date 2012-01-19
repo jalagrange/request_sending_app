@@ -41,3 +41,7 @@ group :development, :test do
   gem "letter_opener"
   gem "pry"
 end
+
+group :production do
+  gem 'pg'
+end
