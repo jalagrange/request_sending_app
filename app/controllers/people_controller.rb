@@ -69,17 +69,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  # DELETE /people/1
-  # DELETE /people/1.json
-  def destroy
-    @person = Person.find(params[:id])
-    @person.destroy
-
-    respond_to do |format|
-      format.html { redirect_to people_url }
-      format.json { head :ok }
-    end
-  end
 
 
 def post_test
@@ -102,5 +91,18 @@ def post_test
   response = Net::HTTP.new(@host, @port).start {|http| http.request(request) }
   puts "Response #{response.code} #{response.message}: #{response.body}"
 end
+
+
+  # DELETE /people/1
+  # DELETE /people/1.json
+  def destroy
+    @person = Person.find(params[:id])
+    @person.destroy
+
+    respond_to do |format|
+      format.html { redirect_to people_url }
+      format.json { head :ok }
+    end
+  end
 
 end
