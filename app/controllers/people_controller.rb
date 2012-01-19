@@ -80,4 +80,27 @@ class PeopleController < ApplicationController
       format.json { head :ok }
     end
   end
+
+
+def post_test
+  require 'net/http'
+  require 'json'
+
+  @host = '190.74.80.148'
+  @port = '3031'
+
+  @path = "/"
+
+  @body ={
+    "bbrequest" => "BBTest",
+    "reqid" => "44",
+    "data" => {"name" => "test"}
+  }.to_json
+
+  request = Net::HTTP::Post.new(@path, initheader = {'Content-Type' =>'application/json'})
+  request.body = @body
+  response = Net::HTTP.new(@host, @port).start {|http| http.request(request) }
+  puts "Response #{response.code} #{response.message}: #{response.body}"
+end
+
 end
